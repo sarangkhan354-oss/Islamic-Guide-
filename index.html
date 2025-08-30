@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Guide - Your Source for Islamic Knowledge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        .arabic {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0d8b4e 0%, #07693a 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        
+        .hero {
+            background: url('https://images.unsplash.com/photo-1587132137058-ceb6decbba70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #0d8b4e;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #07693a;
+        }
+        
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #0d8b4e;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: #0d8b4e;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .prayer-times {
+            background: linear-gradient(135deg, #0d8b4e 0%, #07693a 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .prayer-times h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .prayer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .prayer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .prayer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .prayer-card .time {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .quran-section {
+            padding: 5rem 0;
+            background: #f8f8f8;
+        }
+        
+        .verse-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-family: 'Amiri', serif;
+        }
+        
+        .translation {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .verse-reference {
+            font-style: italic;
+            color: #0d8b4e;
+        }
+        
+        .resources {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: #f8f8f8;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-img {
+            height: 200px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0d8b4e;
+            font-size: 2rem;
+        }
+        
+        .resource-content {
+            padding: 1.5rem;
+        }
+        
+        .resource-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .resource-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #0d8b4e;
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #0d8b4e;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            color: white;
+            background: #0d8b4e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #07693a;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-mosque"></i>
+                <h1>Islamic Guide</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#prayer">Prayer Times</a></li>
+                    <li><a href="#quran">Quran</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Welcome to Islamic Guide</h2>
+            <p>Your comprehensive resource for Islamic knowledge, prayer times, Quranic verses, and more.</p>
+            <a href="#resources" class="btn">Explore Resources</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Islamic Pillars</h2>
+                <p>Learn about the five pillars of Islam that form the foundation of a Muslim's faith and practice.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-fist-raised"></i>
+                    <h3>Shahada</h3>
+                    <p>Declaration of faith in the oneness of God and the prophethood of Muhammad.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-pray"></i>
+                    <h3>Salah</h3>
+                    <p>Performing the five daily prayers to strengthen the connection with Allah.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Zakat</h3>
+                    <p>Giving charity to those in need, purifying wealth and helping the community.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Sawm</h3>
+                    <p>Fasting during the month of Ramadan to develop self-control and devotion.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-kaaba"></i>
+                    <h3>Hajj</h3>
+                    <p>Pilgrimage to Mecca that every Muslim must undertake at least once if able.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Times Section -->
+    <section class="prayer-times" id="prayer">
+        <div class="container">
+            <h2>Today's Prayer Times</h2>
+            <div class="prayer-container">
+                <div class="prayer-card">
+                    <h3>Fajr</h3>
+                    <div class="time">5:24 AM</div>
+                </div>
+                <div class="prayer-card">
+                    <h3>Dhuhr</h3>
+                    <div class="time">12:15 PM</div>
+                </div>
+                <div class="prayer-card">
+                    <h3>Asr</h3>
+                    <div class="time">3:45 PM</div>
+                </div>
+                <div class="prayer-card">
+                    <h3>Maghrib</h3>
+                    <div class="time">6:30 PM</div>
+                </div>
+                <div class="prayer-card">
+                    <h3>Isha</h3>
+                    <div class="time">8:05 PM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Section -->
+    <section class="quran-section" id="quran">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quran Verse of the Day</h2>
+                <p>Reflect upon the teachings of the Holy Quran</p>
+            </div>
+            <div class="verse-container">
+                <p class="verse arabic">وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ</p>
+                <p class="translation">"And when My servants ask you concerning Me, indeed I am near. I respond to the invocation of the supplicant when he calls upon Me. So let them respond to Me and believe in Me that they may be guided."</p>
+                <p class="verse-reference">Surah Al-Baqarah (2:186)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Islamic Resources</h2>
+                <p>Explore our collection of Islamic resources to deepen your understanding</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Quran Studies</h3>
+                        <p>Explore the Quran with translations, tafsir, and recitations from renowned scholars.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Hadith Collection</h3>
+                        <p>Access authentic hadith collections with explanations and scholarly commentary.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Islamic Lectures</h3>
+                        <p>Listen to inspirational lectures from renowned speakers on various Islamic topics.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Islamic Guide is dedicated to providing authentic Islamic knowledge and resources to Muslims worldwide.</p>
+                    <p>Our mission is to make Islamic learning accessible to everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#prayer">Prayer Times</a></li>
+                        <li><a href="#quran">Quran</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for daily Islamic content and updates.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Islamic Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for dynamic prayer times update
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update prayer times (in a real application, you would fetch these from an API)
+            const prayerTimes = {
+                fajr: '5:24 AM',
+                dhuhr: '12:15 PM',
+                asr: '3:45 PM',
+                maghrib: '6:30 PM',
+                isha: '8:05 PM'
+            };
+            
+            // Display today's date
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-US', options);
+            document.querySelector('.prayer-times h2').textContent = `Today's Prayer Times (${today})`;
+            
+            // In a real application, you would calculate prayer times based on location
+            // This is just a static example
+            
+            // Verse of the day functionality
+            const verses = [
+                {
+                    arabic: 'يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ',
+                    translation: 'O you who have believed, persevere and endure and remain stationed and fear Allah that you may be successful.',
+                    reference: 'Surah Al-Imran (3:200)'
+                },
+                {
+                    arabic: 'إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوْا وَالَّذِينَ هُمْ مُحْسِنُونَ',
+                    translation: 'Indeed, Allah is with those who fear Him and those who are doers of good.',
+                    reference: 'Surah An-Nahl (16:128)'
+                },
+                {
+                    arabic: 'وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ ۚ وَاتَّقُوا اللَّهَ ۖ إِنَّ اللَّهَ شَدِيدُ الْعِقَابِ',
+                    translation: 'And cooperate in righteousness and piety, but do not cooperate in sin and aggression. And fear Allah; indeed, Allah is severe in penalty.',
+                    reference: 'Surah Al-Ma\'idah (5:2)'
+                }
+            ];
+            
+            // Show a random verse each day
+            const dailyVerse = verses[Math.floor(Math.random() * verses.length)];
+            document.querySelector('.verse').textContent = dailyVerse.arabic;
+            document.querySelector('.translation').textContent = dailyVerse.translation;
+            document.querySelector('.verse-reference').textContent = dailyVerse.reference;
+        });
+    </script>
+</body>
+</html>
